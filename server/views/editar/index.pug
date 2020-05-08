@@ -1,0 +1,9 @@
+extends ../layout/index
+block contenido 
+    main.container.mt-r.mb-5
+        h1.text-center.mb-5 #{pagina} 
+        .row
+            include ../layout/partials/testimoniales
+                form(action="/borrar/:id", method="post")
+                    input(type="hidden", value=testimonial.id, name="id")
+                    input.btn.btn-success.btn-block(type="submit" value="Borrar")

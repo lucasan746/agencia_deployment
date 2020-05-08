@@ -15,7 +15,9 @@ module.exports = function() {
 	router.get('/viajes', viajesController.consultaViajes);
 	router.get('/viajes/:id',viajesController.detalleViaje);
 	router.get('/testimoniales', testimonialesController.consultaTestimonial);
+	router.get('/edit', testimonialesController.editarTestimonial);
 	router.post("/testimoniales",testimonialesController.agregarTestimonial);
+	router.post(`/borrar/:id`,testimonialesController.borrarTestimonial);
 
 	return router;
 

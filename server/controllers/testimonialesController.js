@@ -1,11 +1,27 @@
 const Testimonial = require('../models/Testimoniales');
 
-exports.consultaTestimonial =async (req,res)=>{
+exports.consultaTestimonial = async (req,res)=>{
     const testimoniales = await Testimonial.findAll()
         res.render('testimoniales',{
             pagina: 'Testimoniales',
             testimoniales
         })
+}
+
+exports.editarTestimonial = async (req,res)=>{
+    const testimoniales = await Testimonial.findAll()
+        res.render('editar',{
+            pagina: 'Editar Testimoniales',
+            testimoniales
+        })
+}
+
+exports.borrarTestimonial = async (req,res)=>{
+    await Testimonial.destroy({
+        where:{
+            id: req.body.id
+        }
+    }).then(testimonial => res.redirect('/edit'))
 }
 
 exports.agregarTestimonial = async (req,res)=> {
